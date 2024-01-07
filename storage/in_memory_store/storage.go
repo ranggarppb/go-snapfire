@@ -1,7 +1,6 @@
 package inmemorystore
 
 import (
-	"fmt"
 	"sync"
 )
 
@@ -21,8 +20,6 @@ func (i *inMemoryStore) Push(input []byte) (int, error) {
 	defer i.mu.Unlock()
 
 	i.data = append(i.data, input)
-
-	fmt.Printf("Data %+v", i.data)
 
 	return len(i.data) - 1, nil
 }
